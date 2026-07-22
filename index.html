@@ -11,7 +11,25 @@ h1 { color:#00A651; text-align:center; margin-top:0; font-size:22px; font-weight
 .info-simpan { background:#F0F9F4; padding:10px; border-radius:6px; font-size:13px; color:#2E7D32; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; }
 .status-cloud { font-weight:600; padding:4px 10px; border-radius:10px; background:#fff; border:1px solid #C8E6C9; }
 
-.form { display:flex; flex-direction:column; gap:15px; margin-bottom:20px; padding:20px; background:#FAFAFA; border-radius:8px; border:1px solid #ECEFF1; }
+/* Dashboard Summaries */
+.summary-container { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
+.summary-card { flex: 1; min-width: 150px; padding: 15px; border-radius: 8px; color: #fff; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+.summary-card h3 { margin: 0; font-size: 13px; font-weight: normal; opacity: 0.9; }
+.summary-card .angka { font-size: 24px; font-weight: 600; margin-top: 5px; }
+.card-selesai { background: #78909C; } /* Abu-abu */
+.card-berjalan { background: #4CAF50; } /* Hijau */
+.card-mendatang { background: #2196F3; } /* Biru */
+
+/* Tombol Utama & Filter */
+.btn-main { background:#00A651; color:#fff; border:none; cursor:pointer; font-weight:600; font-size:14px; padding: 10px 20px; border-radius: 6px; display: inline-block; margin-bottom: 20px; }
+.btn-main:hover { background:#007A3D; }
+
+.filter-section { display: flex; gap: 10px; flex-wrap: wrap; background: #FAFAFA; padding: 15px; border-radius: 8px; border: 1px solid #ECEFF1; margin-bottom: 15px; align-items: center; }
+.filter-section input, .filter-section select { width: auto; flex: 1; min-width: 130px; }
+.filter-section label { font-size: 12px; font-weight: 600; color: #455A64; margin-right: 5px; }
+
+/* Form Styles dalam Modal */
+.form { display:flex; flex-direction:column; gap:15px; padding:5px; }
 .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:15px; }
 .form-group { display:flex; flex-direction:column; gap:5px; }
 .form-group label { font-weight:600; font-size:13px; color:#455A64; }
@@ -22,52 +40,183 @@ textarea { resize: vertical; }
 .checkbox-item { display:flex; align-items:center; gap:6px; font-size:12.5px; color:#455A64; }
 .checkbox-item input { width:auto; cursor:pointer; }
 .other-input { margin-top:5px; display:none; }
-button { background:#00A651; color:#fff; border:none; cursor:pointer; font-weight:600; transition:background 0.2s; font-size:14px; }
-button:hover { background:#007A3D; }
-.btn-edit { background:#FF9800; padding:4px 6px; font-size:11px; margin-bottom:4px; width:100%; border-radius:4px; }
+button { transition:background 0.2s; }
+.btn-simpan { background:#00A651; color:#fff; border:none; cursor:pointer; font-weight:600; font-size:14px; padding:10px; }
+.btn-simpan:hover { background:#007A3D; }
+.btn-edit { background:#FF9800; color:#fff; border:none; padding:4px 6px; font-size:11px; margin-bottom:4px; width:100%; border-radius:4px; cursor:pointer; }
 .btn-edit:hover { background:#FB8C00; }
-.btn-delete { background:#F44336; padding:4px 6px; font-size:11px; width:100%; border-radius:4px; }
+.btn-delete { background:#F44336; color:#fff; border:none; padding:4px 6px; font-size:11px; width:100%; border-radius:4px; cursor:pointer; }
 .btn-delete:hover { background:#E53935; }
+.btn-reset { background:#607D8B; color:#fff; border:none; padding:9px 15px; font-size:12px; cursor:pointer; font-weight:600; border-radius:6px; }
+.btn-reset:hover { background:#455A64; }
 
-table { width:100%; border-collapse:collapse; margin-top:15px; font-size:11.5px; color:#37474F; }
+/* Table Styles */
+table { width:100%; border-collapse:collapse; margin-top:5px; font-size:11.5px; color:#37474F; }
 th, td { border:1px solid #ECEFF1; padding:6px 8px; text-align:left; vertical-align:top; }
 th { background:#00A651; color:#fff; position:sticky; top:0; font-weight:600; font-size:11.5px; vertical-align:middle; }
 tr:nth-child(even) { background:#FAFAFA; }
 tr:hover { background:#F4F9F6; transition:0.1s; }
-tr.today-row { background:#FFFDE7; border-left:3px solid #FFC107; }
+tr.today-row { background:#E8F5E9; border-left:3px solid #4CAF50; }
 .badge { padding:3px 6px; border-radius:4px; font-size:10px; color:#fff; display:inline-block; margin-right:5px; margin-bottom:4px; }
 .andini { background:#42A5F5; }
 .natus { background:#AB47BC; }
-.status { font-weight:600; color:#EF6C00; line-height:1.4; }
-.status small { font-weight:normal; font-size:11px; color:#78909C; font-style:italic; display:block; margin-top:2px; }
 
-.modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.35); z-index:1000; }
-.modal-content { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:22px; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.15); z-index:1001; width:340px; max-height:90vh; overflow-y:auto; }
-.modal-content h3 { margin-top:0; margin-bottom:15px; color:#00A651; font-size:16px; }
+/* Status Colors for Rentang Pelaksanaan */
+.status-badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-bottom: 3px; color:#fff;}
+.status-selesai { background: #78909C; } /* Abu-abu */
+.status-berjalan { background: #4CAF50; } /* Hijau */
+.status-mendatang { background: #2196F3; } /* Biru */
+.tgl-pelaksanaan-teks { font-weight:600; color:#37474F; line-height:1.4; }
+
+/* Modal Styles */
+.modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; }
+.modal-content { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:22px; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.15); z-index:1001; max-height:90vh; overflow-y:auto; }
+.modal-edit { width:400px; }
+.modal-input { width:700px; max-width:95%; }
+.modal-content h3 { margin-top:0; margin-bottom:15px; color:#00A651; font-size:18px; }
 .modal-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:18px; }
-.modal-actions button { width:auto; padding:7px 14px; font-size:13px; }
+.modal-actions button { width:auto; padding:8px 16px; font-size:13px; font-weight:600; border:none; border-radius:6px; cursor:pointer; color:#fff;}
 .btn-cancel { background:#78909C; }
 .btn-cancel:hover { background:#607D8B; }
+.btn-save { background:#00A651; }
+.btn-save:hover { background:#007A3D; }
 
 @media print {
   body { background:#fff; padding:0; }
   .container { box-shadow:none; padding:0; max-width:100%; }
-  .form, h3, button, .btn-delete, .btn-edit, .no-print, .info-simpan { display:none !important; }
+  .no-print, h3, button, .btn-delete, .btn-edit, .info-simpan, .summary-container, .filter-section { display:none !important; }
   .dont-print-row { display:none !important; }
   table { width:100%; border:1px solid #000; font-size: 11px; }
   th, td { border:1px solid #000; color:#000 !important; padding:5px; }
   th { background:#00A651 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  .badge { border:1px solid #000; color:#000 !important; background:transparent !important; margin-bottom:0; }
-  .status { color:#000 !important; }
-  .status small { color:#000 !important; }
+  .badge, .status-badge { border:1px solid #000; color:#000 !important; background:transparent !important; margin-bottom:0; font-weight: normal;}
 }
 </style>
 </head>
 <body>
 
-<div class="modal-overlay" id="modalOverlay"></div>
-<div class="modal-content" id="modalEditTgl">
-  <h3>Edit Jadwal Pelaksanaan</h3>
+<!-- MODAL INPUT JADWAL MCU -->
+<div class="modal-overlay" id="modalInputOverlay"></div>
+<div class="modal-content modal-input" id="modalInputJadwal">
+  <h3>Input Jadwal MCU Baru</h3>
+  <div class="form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Asal Input</label>
+        <select id="asalInput">
+          <option value="Klinik Pratama Andini">Klinik Pratama Andini</option>
+          <option value="PT. Natus">PT. Natus</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nama Client/Perusahaan</label>
+        <input type="text" id="client" placeholder="Nama Client">
+      </div>
+      <div class="form-group">
+        <label>Nama Project</label>
+        <input type="text" id="lokasi" placeholder="Nama Project/Lokasi">
+      </div>
+      <div class="form-group">
+        <label>Total Peserta</label>
+        <input type="number" id="totalPeserta" placeholder="Jumlah Peserta" min="0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Jenis Pemeriksaan (Bisa pilih lebih dari satu)</label>
+      <div class="checkbox-group" id="pemeriksaanGroup">
+        <div class="checkbox-item"><input type="checkbox" value="Pem. Fisik Dokter"> Pem. Fisik Dokter</div>
+        <div class="checkbox-item"><input type="checkbox" value="Visus Mata & TTV"> Visus Mata & TTV</div>
+        <div class="checkbox-item"><input type="checkbox" value="Laboratorium"> Laboratorium</div>
+        <div class="checkbox-item"><input type="checkbox" value="Rontgen"> Rontgen</div>
+        <div class="checkbox-item"><input type="checkbox" value="USG Abdomen"> USG Abdomen</div>
+        <div class="checkbox-item"><input type="checkbox" value="USG Mammae"> USG Mammae</div>
+        <div class="checkbox-item"><input type="checkbox" value="EKG"> EKG</div>
+        <div class="checkbox-item"><input type="checkbox" value="Treadmill"> Treadmill</div>
+        <div class="checkbox-item"><input type="checkbox" value="Spirometri"> Spirometri</div>
+        <div class="checkbox-item"><input type="checkbox" value="Audiometri"> Audiometri</div>
+        <div class="checkbox-item"><input type="checkbox" value="Autorefrak"> Autorefrak</div>
+        <div class="checkbox-item"><input type="checkbox" id="chkPemeriksaanLain" value="Lain-nya"> Lain-nya</div>
+      </div>
+      <input type="text" id="pemeriksaanLainInput" class="other-input" placeholder="Sebutkan pemeriksaan lainnya...">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Tanggal Setting MCU</label>
+        <input type="date" id="tglSetting">
+      </div>
+      <div class="form-group">
+        <label>Jam Setting MCU</label>
+        <input type="time" id="jamSetting">
+      </div>
+      <div class="form-group">
+        <label>Tanggal Mulai Pelaksanaan</label>
+        <input type="date" id="tglMulaiPelaksanaan">
+      </div>
+      <div class="form-group">
+        <label>Tanggal Selesai Pelaksanaan (Kosongkan jika 1 hari)</label>
+        <input type="date" id="tglSelesaiPelaksanaan">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Jenis Operasional (Bisa pilih lebih dari satu)</label>
+      <div class="checkbox-group" id="operasionalGroup">
+        <div class="checkbox-item"><input type="checkbox" value="Mobil Kantor"> Mobil Kantor</div>
+        <div class="checkbox-item"><input type="checkbox" value="Mobil Sewa"> Mobil Sewa</div>
+        <div class="checkbox-item"><input type="checkbox" value="Bis Rontgen"> Bis Rontgen</div>
+        <div class="checkbox-item"><input type="checkbox" value="Bis 3/4"> Bis 3/4</div>
+        <div class="checkbox-item"><input type="checkbox" value="Mobil Pribadi"> Mobil Pribadi</div>
+        <div class="checkbox-item"><input type="checkbox" value="Mobil Box"> Mobil Box</div>
+        <div class="checkbox-item"><input type="checkbox" id="chkOperasionalLain" value="Lain-nya"> Lain-nya</div>
+      </div>
+      <input type="text" id="operasionalLainInput" class="other-input" placeholder="Sebutkan operasional lainnya...">
+    </div>
+
+    <div class="form-group">
+      <label>Keterangan Tambahan</label>
+      <textarea id="keterangan" placeholder="Catatan untuk jadwal ini (Bisa Multi Baris)" rows="2"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group" style="grid-column: span 2;">
+        <label>Pilih PIC Lokasi</label>
+        <select id="picSelect">
+          <option value="" data-hp="-">-- Pilih PIC --</option>
+          <option value="Alwi" data-hp="08131580856">Alwi (08131580856)</option>
+          <option value="Deki" data-hp="085691150818">Deki (085691150818)</option>
+          <option value="Octa" data-hp="089644749128">Octa (089644749128)</option>
+          <option value="Vega" data-hp="085722522440">Vega (085722522440)</option>
+          <option value="Novi" data-hp="085811927699">Novi (085811927699)</option>
+          <option value="Ayu" data-hp="081213258696">Ayu (081213258696)</option>
+          <option value="custom" data-hp="custom">➕ Tambahkan PIC (Input Manual)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row other-input" id="customPicRow">
+      <div class="form-group">
+        <label>Nama PIC Manual</label>
+        <input type="text" id="picNamaManual" placeholder="Nama PIC Baru">
+      </div>
+      <div class="form-group">
+        <label>No. HP PIC Manual</label>
+        <input type="text" id="picHpManual" placeholder="No. HP PIC Baru">
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="tutupModalInput()">Batal</button>
+      <button class="btn-save" onclick="addJadwal()">Simpan Jadwal</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDIT DATA & PIC -->
+<div class="modal-overlay" id="modalEditOverlay"></div>
+<div class="modal-content modal-edit" id="modalEditTgl">
+  <h3>Edit Jadwal & PIC</h3>
   <input type="hidden" id="editIndex">
   
   <div class="form-group" style="margin-bottom:10px;">
@@ -78,31 +227,63 @@ tr.today-row { background:#FFFDE7; border-left:3px solid #FFC107; }
     </select>
   </div>
   
-  <div class="form-group" style="margin-bottom:10px;">
-    <label>Tanggal Setting MCU</label>
-    <input type="date" id="editTglSetting">
+  <div class="form-row" style="margin-bottom:10px;">
+    <div class="form-group">
+      <label>Tgl Setting</label>
+      <input type="date" id="editTglSetting">
+    </div>
+    <div class="form-group">
+      <label>Jam Setting</label>
+      <input type="time" id="editJamSetting">
+    </div>
   </div>
-  <div class="form-group" style="margin-bottom:10px;">
-    <label>Jam Setting MCU</label>
-    <input type="time" id="editJamSetting">
+
+  <div class="form-row" style="margin-bottom:10px;">
+    <div class="form-group">
+      <label>Tgl Mulai Pelaksanaan</label>
+      <input type="date" id="editTglMulai">
+    </div>
+    <div class="form-group">
+      <label>Tgl Selesai Pelaksanaan</label>
+      <input type="date" id="editTglSelesai">
+    </div>
   </div>
+
   <div class="form-group" style="margin-bottom:10px;">
-    <label>Tanggal Mulai Pelaksanaan</label>
-    <input type="date" id="editTglMulai">
+    <label>Edit PIC Lokasi</label>
+    <select id="editPicSelect">
+      <option value="" data-hp="-">-- Pilih PIC --</option>
+      <option value="Alwi" data-hp="08131580856">Alwi (08131580856)</option>
+      <option value="Deki" data-hp="085691150818">Deki (085691150818)</option>
+      <option value="Octa" data-hp="089644749128">Octa (089644749128)</option>
+      <option value="Vega" data-hp="085722522440">Vega (085722522440)</option>
+      <option value="Novi" data-hp="085811927699">Novi (085811927699)</option>
+      <option value="Ayu" data-hp="081213258696">Ayu (081213258696)</option>
+      <option value="custom" data-hp="custom">➕ PIC Manual / Lainnya</option>
+    </select>
   </div>
-  <div class="form-group" style="margin-bottom:10px;">
-    <label>Tanggal Selesai Pelaksanaan</label>
-    <input type="date" id="editTglSelesai">
+  
+  <div class="form-row other-input" id="editCustomPicRow" style="margin-bottom:10px;">
+    <div class="form-group">
+      <label>Nama PIC</label>
+      <input type="text" id="editPicNamaManual" placeholder="Nama PIC">
+    </div>
+    <div class="form-group">
+      <label>No. HP PIC</label>
+      <input type="text" id="editPicHpManual" placeholder="No. HP PIC">
+    </div>
   </div>
+
   <div class="form-group" style="margin-bottom:15px;">
     <label>Keterangan</label>
-    <textarea id="editKeterangan" placeholder="Catatan tambahan (Bisa Multi Baris)" rows="3"></textarea>
+    <textarea id="editKeterangan" placeholder="Catatan tambahan" rows="3"></textarea>
   </div>
   <div class="modal-actions">
     <button class="btn-cancel" onclick="batalEditTgl()">Batal</button>
-    <button onclick="simpanEditTgl()">Simpan</button>
+    <button class="btn-save" onclick="simpanEditTgl()">Simpan Perubahan</button>
   </div>
 </div>
+
 
 <div class="container">
 <h1>📋 JADWAL HARIAN MCU</h1>
@@ -112,124 +293,62 @@ tr.today-row { background:#FFFDE7; border-left:3px solid #FFC107; }
   <span class="status-cloud" id="statusSimpan">🌐 Sedang memuat...</span>
 </div>
 
-<h3 class="no-print" style="font-size:15px; color:#455A64; margin-bottom:10px;">Input Jadwal MCU Baru</h3>
-<div class="form no-print">
-  <div class="form-row">
-    <div class="form-group">
-      <label>Asal Input</label>
-      <select id="asalInput">
-        <option value="Klinik Pratama Andini">Klinik Pratama Andini</option>
-        <option value="PT. Natus">PT. Natus</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Nama Client/Perusahaan</label>
-      <input type="text" id="client" placeholder="Nama Client">
-    </div>
-    <div class="form-group">
-      <label>Nama Project</label>
-      <input type="text" id="lokasi" placeholder="Nama Project/Lokasi">
-    </div>
-    <div class="form-group">
-      <label>Total Peserta</label>
-      <input type="number" id="totalPeserta" placeholder="Jumlah Peserta" min="0">
-    </div>
+<!-- INFORMASI TOTAL MCU -->
+<div class="summary-container no-print">
+  <div class="summary-card card-selesai">
+    <h3>Total MCU Selesai</h3>
+    <div class="angka" id="countSelesai">0</div>
   </div>
-
-  <div class="form-group">
-    <label>Jenis Pemeriksaan (Bisa pilih lebih dari satu)</label>
-    <div class="checkbox-group" id="pemeriksaanGroup">
-      <div class="checkbox-item"><input type="checkbox" value="Pem. Fisik Dokter"> Pem. Fisik Dokter</div>
-      <div class="checkbox-item"><input type="checkbox" value="Visus Mata & TTV"> Visus Mata & TTV</div>
-      <div class="checkbox-item"><input type="checkbox" value="Laboratorium"> Laboratorium</div>
-      <div class="checkbox-item"><input type="checkbox" value="Rontgen"> Rontgen</div>
-      <div class="checkbox-item"><input type="checkbox" value="USG Abdomen"> USG Abdomen</div>
-      <div class="checkbox-item"><input type="checkbox" value="USG Mammae"> USG Mammae</div>
-      <div class="checkbox-item"><input type="checkbox" value="EKG"> EKG</div>
-      <div class="checkbox-item"><input type="checkbox" value="Treadmill"> Treadmill</div>
-      <div class="checkbox-item"><input type="checkbox" value="Spirometri"> Spirometri</div>
-      <div class="checkbox-item"><input type="checkbox" value="Audiometri"> Audiometri</div>
-      <div class="checkbox-item"><input type="checkbox" value="Autorefrak"> Autorefrak</div>
-      <div class="checkbox-item"><input type="checkbox" id="chkPemeriksaanLain" value="Lain-nya"> Lain-nya</div>
-    </div>
-    <input type="text" id="pemeriksaanLainInput" class="other-input" placeholder="Sebutkan pemeriksaan lainnya...">
+  <div class="summary-card card-berjalan">
+    <h3>Total MCU Berjalan</h3>
+    <div class="angka" id="countBerjalan">0</div>
   </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Tanggal Setting MCU</label>
-      <input type="date" id="tglSetting">
-    </div>
-    <div class="form-group">
-      <label>Jam Setting MCU</label>
-      <input type="time" id="jamSetting">
-    </div>
-    <div class="form-group">
-      <label>Tanggal Mulai Pelaksanaan</label>
-      <input type="date" id="tglMulaiPelaksanaan">
-    </div>
-    <div class="form-group">
-      <label>Tanggal Selesai Pelaksanaan (Kosongkan jika 1 hari)</label>
-      <input type="date" id="tglSelesaiPelaksanaan">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label>Jenis Operasional (Bisa pilih lebih dari satu)</label>
-    <div class="checkbox-group" id="operasionalGroup">
-      <div class="checkbox-item"><input type="checkbox" value="Mobil Kantor"> Mobil Kantor</div>
-      <div class="checkbox-item"><input type="checkbox" value="Mobil Sewa"> Mobil Sewa</div>
-      <div class="checkbox-item"><input type="checkbox" value="Bis Rontgen"> Bis Rontgen</div>
-      <div class="checkbox-item"><input type="checkbox" value="Bis 3/4"> Bis 3/4</div>
-      <div class="checkbox-item"><input type="checkbox" value="Mobil Pribadi"> Mobil Pribadi</div>
-      <div class="checkbox-item"><input type="checkbox" value="Mobil Box"> Mobil Box</div>
-      <div class="checkbox-item"><input type="checkbox" id="chkOperasionalLain" value="Lain-nya"> Lain-nya</div>
-    </div>
-    <input type="text" id="operasionalLainInput" class="other-input" placeholder="Sebutkan operasional lainnya...">
-  </div>
-
-  <div class="form-group">
-    <label>Keterangan Tambahan</label>
-    <textarea id="keterangan" placeholder="Catatan untuk jadwal ini (Bisa Multi Baris)" rows="3"></textarea>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group" style="grid-column: span 2;">
-      <label>Pilih PIC Lokasi</label>
-      <select id="picSelect">
-        <option value="" data-hp="-">-- Pilih PIC --</option>
-        <option value="Alwi" data-hp="08131580856">Alwi (08131580856)</option>
-        <option value="Deki" data-hp="085691150818">Deki (085691150818)</option>
-        <option value="Octa" data-hp="089644749128">Octa (089644749128)</option>
-        <option value="Vega" data-hp="085722522440">Vega (085722522440)</option>
-        <option value="Novi" data-hp="085811927699">Novi (085811927699)</option>
-        <option value="Ayu" data-hp="081213258696">Ayu (081213258696)</option>
-        <option value="custom" data-hp="custom">➕ Tambahkan PIC (Input Manual)</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-row other-input" id="customPicRow">
-    <div class="form-group">
-      <label>Nama PIC Manual</label>
-      <input type="text" id="picNamaManual" placeholder="Nama PIC Baru">
-    </div>
-    <div class="form-group">
-      <label>No. HP PIC Manual</label>
-      <input type="text" id="picHpManual" placeholder="No. HP PIC Baru">
-    </div>
-  </div>
-
-  <button onclick="addJadwal()">+ Simpan Jadwal</button>
-</div>
-
-<div style="display:flex; justify-content:space-between; align-items:center; margin-top:25px;">
-  <h3 style="font-size:15px; color:#455A64; margin:0;">Daftar Jadwal MCU</h3>
-  <div class="no-print" style="display:flex; gap:8px;">
-    <button onclick="cetakPDF()" style="width:auto; padding:8px 15px; background:#007A3D; font-size:13px;">🖨️ Cetak PDF Pilihan</button>
+  <div class="summary-card card-mendatang">
+    <h3>Total MCU Akan Datang</h3>
+    <div class="angka" id="countMendatang">0</div>
   </div>
 </div>
 
+<!-- TOMBOL INPUT & CETAK -->
+<div class="no-print" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 5px;">
+  <button class="btn-main" onclick="bukaModalInput()">➕ Input Jadwal MCU</button>
+  <button onclick="cetakPDF()" style="background:#007A3D; color:#fff; padding:10px 15px; border:none; border-radius:6px; cursor:pointer; font-weight:600; font-size:13px;">🖨️ Cetak PDF Pilihan</button>
+</div>
+
+<!-- FILTER PENCARIAN -->
+<div class="filter-section no-print">
+  <div style="display:flex; align-items:center; gap:5px;">
+    <label>Cari:</label>
+    <input type="text" id="filterCari" placeholder="Ketik nama client / project..." onkeyup="render()">
+  </div>
+  <div style="display:flex; align-items:center; gap:5px;">
+    <label>Bulan:</label>
+    <select id="filterBulan" onchange="render()">
+      <option value="">Semua Bulan</option>
+      <option value="01">Januari</option>
+      <option value="02">Februari</option>
+      <option value="03">Maret</option>
+      <option value="04">April</option>
+      <option value="05">Mei</option>
+      <option value="06">Juni</option>
+      <option value="07">Juli</option>
+      <option value="08">Agustus</option>
+      <option value="09">September</option>
+      <option value="10">Oktober</option>
+      <option value="11">November</option>
+      <option value="12">Desember</option>
+    </select>
+  </div>
+  <div style="display:flex; align-items:center; gap:5px; flex-wrap:wrap;">
+    <label>Rentang Pelaksanaan:</label>
+    <input type="date" id="filterTglAwal" onchange="render()">
+    <span style="font-size:12px; color:#455A64;">s.d</span>
+    <input type="date" id="filterTglAkhir" onchange="render()">
+  </div>
+  <button class="btn-reset" onclick="resetFilter()">Reset</button>
+</div>
+
+<!-- TABEL UTAMA -->
 <table id="tabelJadwal">
 <thead>
 <tr>
@@ -265,6 +384,7 @@ const STORAGE_KEY = 'data_jadwal_mcu_fix_pelaksanaan';
 
 document.getElementById('tanggalHariIni').innerText = 'Hari Ini: ' + new Date().toLocaleDateString('id-ID', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
 
+// Event Listeners UI Logika Input
 document.getElementById('chkPemeriksaanLain').addEventListener('change', function() {
   document.getElementById('pemeriksaanLainInput').style.display = this.checked ? 'block' : 'none';
 });
@@ -281,6 +401,25 @@ document.getElementById('picSelect').addEventListener('change', function() {
     document.getElementById('picHpManual').value = '';
   }
 });
+document.getElementById('editPicSelect').addEventListener('change', function() {
+  let customRow = document.getElementById('editCustomPicRow');
+  if (this.value === 'custom') {
+    customRow.style.display = 'grid';
+  } else {
+    customRow.style.display = 'none';
+  }
+});
+
+// Modal Controller
+function bukaModalInput() {
+  document.getElementById('modalInputOverlay').style.display = 'block';
+  document.getElementById('modalInputJadwal').style.display = 'block';
+}
+function tutupModalInput() {
+  document.getElementById('modalInputOverlay').style.display = 'none';
+  document.getElementById('modalInputJadwal').style.display = 'none';
+  clearForm();
+}
 
 async function muatDataOtomatis() {
   const dataLokal = localStorage.getItem(STORAGE_KEY);
@@ -359,23 +498,13 @@ function addJadwal() {
   let tglSelesai = document.getElementById('tglSelesaiPelaksanaan').value;
   const keterangan = document.getElementById('keterangan').value.trim();
 
-  if (!tglMulai) {
-    alert('Silakan isi Tanggal Mulai Pelaksanaan!');
-    return;
-  }
-  
-  if (!tglSelesai) {
-    tglSelesai = tglMulai;
-  }
-
+  if (!tglMulai) { alert('Silakan isi Tanggal Mulai Pelaksanaan!'); return; }
+  if (!tglSelesai) { tglSelesai = tglMulai; }
   if (new Date(tglSelesai) < new Date(tglMulai)) {
-    alert('Tanggal Selesai tidak boleh lebih awal dari Tanggal Mulai!');
-    return;
+    alert('Tanggal Selesai tidak boleh lebih awal dari Tanggal Mulai!'); return;
   }
-  
   if (!document.getElementById('client').value.trim()) {
-    alert('Nama Client wajib diisi!');
-    return;
+    alert('Nama Client wajib diisi!'); return;
   }
 
   let data = {
@@ -397,9 +526,10 @@ function addJadwal() {
   jadwal.push(data);
   simpanDataLengkap(); 
   render(); 
-  clearForm();
+  tutupModalInput();
 }
 
+// BUKA MODAL EDIT
 function bukaEditTgl(i) {
   document.getElementById('editIndex').value = i;
   document.getElementById('editAsalInput').value = jadwal[i].asal || 'Klinik Pratama Andini';
@@ -408,44 +538,60 @@ function bukaEditTgl(i) {
   document.getElementById('editTglMulai').value = jadwal[i].tglMulai ? jadwal[i].tglMulai.split('T')[0] : '';
   document.getElementById('editTglSelesai').value = jadwal[i].tglSelesai ? jadwal[i].tglSelesai.split('T')[0] : '';
   document.getElementById('editKeterangan').value = jadwal[i].keterangan || '';
-  document.getElementById('modalOverlay').style.display = 'block'; 
+  
+  // Logic Edit PIC
+  let picName = jadwal[i].picNama || '-';
+  let picHp = jadwal[i].picHp || '-';
+  let selectEl = document.getElementById('editPicSelect');
+  let optionExists = Array.from(selectEl.options).some(opt => opt.value === picName);
+  
+  if(optionExists && picName !== '-' && picName !== '') {
+    selectEl.value = picName;
+    document.getElementById('editCustomPicRow').style.display = 'none';
+  } else {
+    selectEl.value = 'custom';
+    document.getElementById('editCustomPicRow').style.display = 'grid';
+    document.getElementById('editPicNamaManual').value = picName === '-' ? '' : picName;
+    document.getElementById('editPicHpManual').value = picHp === '-' ? '' : picHp;
+  }
+
+  document.getElementById('modalEditOverlay').style.display = 'block'; 
   document.getElementById('modalEditTgl').style.display = 'block';
 }
 
 function batalEditTgl() {
-  document.getElementById('modalOverlay').style.display = 'none'; 
+  document.getElementById('modalEditOverlay').style.display = 'none'; 
   document.getElementById('modalEditTgl').style.display = 'none';
 }
 
 function simpanEditTgl() {
   let i = document.getElementById('editIndex').value;
-  let asalInput = document.getElementById('editAsalInput').value;
-  let tglSetting = document.getElementById('editTglSetting').value;
-  let jamSetting = document.getElementById('editJamSetting').value;
   let tglMulai = document.getElementById('editTglMulai').value;
   let tglSelesai = document.getElementById('editTglSelesai').value;
-  let keterangan = document.getElementById('editKeterangan').value.trim();
   
-  if (!tglMulai) {
-    alert('Tanggal Mulai Pelaksanaan harus diisi!');
-    return;
-  }
+  if (!tglMulai) { alert('Tanggal Mulai Pelaksanaan harus diisi!'); return; }
+  if (!tglSelesai) { tglSelesai = tglMulai; }
+  if (new Date(tglSelesai) < new Date(tglMulai)) { alert('Tanggal selesai tidak valid!'); return; }
   
-  if (!tglSelesai) {
-    tglSelesai = tglMulai;
+  // Ambil PIC
+  let editPicSelect = document.getElementById('editPicSelect');
+  let finalPicNama = '-', finalPicHp = '-';
+  if(editPicSelect.value === 'custom') {
+    finalPicNama = document.getElementById('editPicNamaManual').value.trim() || '-';
+    finalPicHp = document.getElementById('editPicHpManual').value.trim() || '-';
+  } else if (editPicSelect.value !== '') {
+    finalPicNama = editPicSelect.value;
+    finalPicHp = editPicSelect.options[editPicSelect.selectedIndex].getAttribute('data-hp');
   }
 
-  if (new Date(tglSelesai) < new Date(tglMulai)) {
-    alert('Tanggal selesai tidak boleh lebih awal dari tanggal mulai!');
-    return;
-  }
-  
-  jadwal[i].asal = asalInput;
-  jadwal[i].tglSetting = tglSetting; 
-  jadwal[i].jamSetting = jamSetting; 
+  jadwal[i].asal = document.getElementById('editAsalInput').value;
+  jadwal[i].tglSetting = document.getElementById('editTglSetting').value; 
+  jadwal[i].jamSetting = document.getElementById('editJamSetting').value; 
   jadwal[i].tglMulai = tglMulai; 
   jadwal[i].tglSelesai = tglSelesai;
-  jadwal[i].keterangan = keterangan || '-';
+  jadwal[i].keterangan = document.getElementById('editKeterangan').value.trim() || '-';
+  jadwal[i].picNama = finalPicNama;
+  jadwal[i].picHp = finalPicHp;
   
   simpanDataLengkap(); 
   render(); 
@@ -461,22 +607,25 @@ function delJadwal(i){
 }
 
 function clearForm(){
-  document.querySelectorAll('.form input[type="text"], .form input[type="date"], .form input[type="time"], .form input[type="number"], .form textarea').forEach(e=>e.value='');
-  document.querySelectorAll('.form input[type="checkbox"]').forEach(e=>e.checked = false);
+  document.querySelectorAll('#modalInputJadwal input[type="text"], #modalInputJadwal input[type="date"], #modalInputJadwal input[type="time"], #modalInputJadwal input[type="number"], #modalInputJadwal textarea').forEach(e=>e.value='');
+  document.querySelectorAll('#modalInputJadwal input[type="checkbox"]').forEach(e=>e.checked = false);
   document.getElementById('picSelect').value = '';
   document.getElementById('customPicRow').style.display = 'none';
   document.getElementById('pemeriksaanLainInput').style.display = 'none'; 
   document.getElementById('operasionalLainInput').style.display = 'none';
 }
 
+function resetFilter() {
+  document.getElementById('filterCari').value = '';
+  document.getElementById('filterBulan').value = '';
+  document.getElementById('filterTglAwal').value = '';
+  document.getElementById('filterTglAkhir').value = '';
+  render();
+}
+
 function formatTanggal(tgl){
   if(!tgl) return '-'; 
-  
-  let dateOnly = tgl;
-  if (tgl.includes('T')) {
-    dateOnly = tgl.split('T')[0];
-  }
-  
+  let dateOnly = tgl.includes('T') ? tgl.split('T')[0] : tgl;
   let parts = dateOnly.split('-');
   if (parts.length === 3) {
     const d = new Date(parts[0], parts[1] - 1, parts[2]);
@@ -492,20 +641,40 @@ function formatTglSettingCell(tgl, jam){
   return `${tglFormatted}<br><span style="font-size:10.5px; color:#78909C;">Pukul ${jamFormatted}</span>`;
 }
 
-function formatRentangPelaksanaanCell(mulai, selesai){
+// Logika penentuan status (Selesai, Berjalan, Akan Datang)
+function cekStatusPelaksanaan(mulai, selesai, hariIniStr) {
+    if(!mulai) return { status: 'unknown', badgeClass: '', label: '' };
+    let cleanMulai = mulai.split('T')[0];
+    let cleanSelesai = selesai ? selesai.split('T')[0] : cleanMulai;
+    
+    if (cleanSelesai < hariIniStr) {
+        return { status: 'selesai', badgeClass: 'status-selesai', label: 'Selesai' };
+    } else if (cleanMulai > hariIniStr) {
+        return { status: 'mendatang', badgeClass: 'status-mendatang', label: 'Akan Datang' };
+    } else {
+        return { status: 'berjalan', badgeClass: 'status-berjalan', label: 'Sedang Berjalan' };
+    }
+}
+
+function formatRentangPelaksanaanCell(mulai, selesai, statusObj){
   if(!mulai && !selesai) return '-';
-  
   let cleanMulai = mulai ? mulai.split('T')[0] : '';
   let cleanSelesai = selesai ? selesai.split('T')[0] : '';
+  
+  let tglHtml = '';
+  if(cleanMulai && !cleanSelesai) tglHtml = formatTanggal(cleanMulai);
+  else if(!cleanMulai && cleanSelesai) tglHtml = formatTanggal(cleanSelesai);
+  else if(cleanMulai === cleanSelesai) tglHtml = formatTanggal(cleanMulai);
+  else tglHtml = `${formatTanggal(cleanMulai)} <span style="font-size:10.5px; color:#78909C;">s.d.</span> ${formatTanggal(cleanSelesai)}`;
 
-  if(cleanMulai && !cleanSelesai) return formatTanggal(cleanMulai);
-  else if(!cleanMulai && cleanSelesai) return formatTanggal(cleanSelesai);
-  else if(cleanMulai === cleanSelesai) return formatTanggal(cleanMulai);
-  else return `${formatTanggal(cleanMulai)}<br><span style="font-size:10.5px; color:#78909C;">s.d. ${formatTanggal(cleanSelesai)}</span>`;
+  return `<span class="status-badge ${statusObj.badgeClass}">${statusObj.label}</span><br><span class="tgl-pelaksanaan-teks">${tglHtml}</span>`;
 }
 
 function toggleSelectAll(master) { 
-  document.querySelectorAll('.print-select').forEach(cb => cb.checked = master.checked); 
+  document.querySelectorAll('.print-select').forEach(cb => {
+    // Only select visible checkboxes (filtered ones)
+    if(cb.closest('tr').style.display !== 'none') cb.checked = master.checked;
+  }); 
 }
 
 function cetakPDF() {
@@ -513,11 +682,11 @@ function cetakPDF() {
   let adaYangDipilih = false;
   checkboxes.forEach(cb => { 
     let row = cb.closest('tr'); 
-    if (!cb.checked) { row.classList.add('dont-print-row'); } 
+    if (!cb.checked || row.style.display === 'none') { row.classList.add('dont-print-row'); } 
     else { row.classList.remove('dont-print-row'); adaYangDipilih = true; } 
   });
   if (!adaYangDipilih) { 
-    alert('Pilih minimal satu jadwal!'); 
+    alert('Pilih minimal satu jadwal (centang pada tabel)!'); 
     checkboxes.forEach(cb => cb.closest('tr').classList.remove('dont-print-row')); 
     return; 
   }
@@ -528,8 +697,16 @@ function cetakPDF() {
 function render(){
   let list = document.getElementById('listJadwal'); 
   list.innerHTML='';
-  let hariIni = new Date().toISOString().split('T')[0];
+  
+  let hariIniStr = new Date().toISOString().split('T')[0];
+  
+  // Get Filter Values
+  let cari = document.getElementById('filterCari').value.toLowerCase();
+  let fBulan = document.getElementById('filterBulan').value;
+  let fAwal = document.getElementById('filterTglAwal').value;
+  let fAkhir = document.getElementById('filterTglAkhir').value;
 
+  // Sorting
   jadwal.sort((a, b) => {
     if (!a.tglSetting) return 1; 
     if (!b.tglSetting) return -1;
@@ -538,28 +715,70 @@ function render(){
     return new Date(`${tglA}T${a.jamSetting || '00:00'}`) - new Date(`${tglB}T${b.jamSetting || '00:00'}`);
   });
 
+  let statSelesai = 0, statBerjalan = 0, statMendatang = 0;
+
   jadwal.forEach((e,i)=>{
+    // Data preparation & Status calculation
     let cleanMulai = e.tglMulai ? e.tglMulai.split('T')[0] : '';
     let cleanSelesai = e.tglSelesai ? e.tglSelesai.split('T')[0] : '';
-    let isToday = (cleanMulai <= hariIni && cleanSelesai >= hariIni) ? 'today-row' : '';
-    let badgeAsal = e.asal === 'PT. Natus' ? 'natus' : 'andini';
+    let statusObj = cekStatusPelaksanaan(cleanMulai, cleanSelesai, hariIniStr);
     
-    list.innerHTML += `
-    <tr class="${isToday}">
-      <td>${i+1}</td>
-      <td><span class="badge ${badgeAsal}">${e.asal}</span><br><b>${e.client}</b></td>
-      <td>${e.lokasi || '-'}</td>
-      <td><b>${e.totalPeserta || '0'}</b> Org</td>
-      <td style="max-width:120px;">${e.jenis || '-'}</td>
-      <td>${formatTglSettingCell(e.tglSetting, e.jamSetting)}</td>
-      <td class="status">${formatRentangPelaksanaanCell(e.tglMulai, e.tglSelesai)}</td>
-      <td style="max-width:100px;">${e.operasional || '-'}</td>
-      <td style="min-width:180px; max-width:250px; white-space:pre-wrap; word-wrap:break-word;">${e.keterangan || '-'}</td>
-      <td><b>${e.picNama || '-'}</b><br><span style="font-size:11px; color:#78909C;">${e.picHp || '-'}</span></td>
-      <td class="no-print"><button class="btn-edit" onclick="bukaEditTgl(${i})">Edit</button><button class="btn-delete" onclick="delJadwal(${i})">Hapus</button></td>
-      <td class="no-print" style="text-align:center;"><input type="checkbox" class="print-select" style="width:14px; height:14px; margin-top:2px; cursor:pointer;"></td>
-    </tr>`;
+    // Count stats (Based on ALL data, or filtered data? Usually based on ALL data or filtered. Let's do ALL data so dashboard is absolute)
+    if(statusObj.status === 'selesai') statSelesai++;
+    if(statusObj.status === 'berjalan') statBerjalan++;
+    if(statusObj.status === 'mendatang') statMendatang++;
+
+    // FILTER LOGIC
+    let isMatch = true;
+    // 1. Text Search
+    let teksDicari = (e.client + " " + e.lokasi).toLowerCase();
+    if(cari && !teksDicari.includes(cari)) isMatch = false;
+    
+    // 2. Filter Bulan (berdasarkan Tgl Mulai)
+    if(isMatch && fBulan && cleanMulai) {
+        let bulanMulai = cleanMulai.split('-')[1];
+        if(bulanMulai !== fBulan) isMatch = false;
+    }
+
+    // 3. Filter Rentang Tanggal (overlap logika)
+    if(isMatch && fAwal && fAkhir) {
+        // Jika rentang jadwal tidak beririsan dengan rentang filter
+        if(cleanSelesai < fAwal || cleanMulai > fAkhir) {
+            isMatch = false;
+        }
+    } else if (isMatch && fAwal) {
+        if(cleanSelesai < fAwal) isMatch = false;
+    } else if (isMatch && fAkhir) {
+        if(cleanMulai > fAkhir) isMatch = false;
+    }
+
+    if(isMatch) {
+      let isToday = (statusObj.status === 'berjalan') ? 'today-row' : '';
+      let badgeAsal = e.asal === 'PT. Natus' ? 'natus' : 'andini';
+      
+      list.innerHTML += `
+      <tr class="${isToday}">
+        <td>${i+1}</td>
+        <td><span class="badge ${badgeAsal}">${e.asal}</span><br><b>${e.client}</b></td>
+        <td>${e.lokasi || '-'}</td>
+        <td><b>${e.totalPeserta || '0'}</b> Org</td>
+        <td style="max-width:120px;">${e.jenis || '-'}</td>
+        <td>${formatTglSettingCell(e.tglSetting, e.jamSetting)}</td>
+        <td>${formatRentangPelaksanaanCell(e.tglMulai, e.tglSelesai, statusObj)}</td>
+        <td style="max-width:100px;">${e.operasional || '-'}</td>
+        <td style="min-width:160px; max-width:220px; white-space:pre-wrap; word-wrap:break-word;">${e.keterangan || '-'}</td>
+        <td><b>${e.picNama || '-'}</b><br><span style="font-size:11px; color:#78909C;">${e.picHp || '-'}</span></td>
+        <td class="no-print"><button class="btn-edit" onclick="bukaEditTgl(${i})">Edit</button><button class="btn-delete" onclick="delJadwal(${i})">Hapus</button></td>
+        <td class="no-print" style="text-align:center;"><input type="checkbox" class="print-select" style="width:14px; height:14px; margin-top:2px; cursor:pointer;"></td>
+      </tr>`;
+    }
   });
+
+  // Update Summary Dashboards
+  document.getElementById('countSelesai').innerText = statSelesai;
+  document.getElementById('countBerjalan').innerText = statBerjalan;
+  document.getElementById('countMendatang').innerText = statMendatang;
+  
   document.getElementById('selectAll').checked = false;
 }
 

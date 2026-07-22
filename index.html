@@ -187,7 +187,7 @@ tr.row-mendatang:hover { background-color: #FFF9C4; transition:0.1s; }
   </div>
 
   <div class="form-group">
-    <label>Jenis Pemeriksaan (Bisa pilih lebih dari satu)</label>
+    <label>Jenis Pemeriksaan</label>
     <div class="checkbox-group" id="pemeriksaanGroup">
       <div class="checkbox-item"><input type="checkbox" value="Pem. Fisik Dokter"> Pem. Fisik Dokter</div>
       <div class="checkbox-item"><input type="checkbox" value="Visus Mata & TTV"> Visus Mata & TTV</div>
@@ -228,7 +228,7 @@ tr.row-mendatang:hover { background-color: #FFF9C4; transition:0.1s; }
   </div>
 
   <div class="form-group">
-    <label>Jenis Operasional (Bisa pilih lebih dari satu)</label>
+    <label>Jenis Operasional</label>
     <div class="checkbox-group" id="operasionalGroup">
       <div class="checkbox-item"><input type="checkbox" value="Mobil Kantor"> Mobil Kantor</div>
       <div class="checkbox-item"><input type="checkbox" value="Mobil Sewa"> Mobil Sewa</div>
@@ -243,7 +243,7 @@ tr.row-mendatang:hover { background-color: #FFF9C4; transition:0.1s; }
 
   <div class="form-group">
     <label>Keterangan Tambahan</label>
-    <textarea id="keterangan" placeholder="Catatan untuk jadwal ini (Bisa Multi Baris)" rows="3"></textarea>
+    <textarea id="keterangan" placeholder="Catatan untuk jadwal ini" rows="3"></textarea>
   </div>
 
   <div class="form-row">
@@ -309,12 +309,12 @@ tr.row-mendatang:hover { background-color: #FFF9C4; transition:0.1s; }
     <button class="btn-input-mcu" onclick="bukaModalInput()">➕ Input Jadwal MCU</button>
   </div>
 
-  <!-- Filter Section -->
+<!-- Filter Section -->
   <div class="filter-section no-print">
     <span style="font-weight:600; color:#455A64;">🔍 Filter:</span>
     <input type="text" id="filterNama" placeholder="Cari Nama Client..." oninput="resetPageAndRender()">
     <select id="filterBulan" onchange="resetPageAndRender()">
-      <option value="all">Semua Bulan (Tgl Mulai)</option>
+      <option value="all">Semua Bulan</option>
       <option value="01">Januari</option>
       <option value="02">Februari</option>
       <option value="03">Maret</option>
@@ -333,6 +333,12 @@ tr.row-mendatang:hover { background-color: #FFF9C4; transition:0.1s; }
       <option value="Selesai">Selesai</option>
       <option value="Sedang Berjalan">Sedang Berjalan</option>
       <option value="Akan Datang">Akan Datang</option>
+    </select>
+    <!-- Tambahan Filter Asal Input -->
+    <select id="filterAsal" onchange="resetPageAndRender()">
+      <option value="all">Semua Asal</option>
+      <option value="Klinik Pratama Andini">Klinik Pratama Andini</option>
+      <option value="PT. Natus">PT. Natus</option>
     </select>
   </div>
 
@@ -694,6 +700,7 @@ function render(){
   let textFilter = document.getElementById('filterNama').value.toLowerCase();
   let bulanFilter = document.getElementById('filterBulan').value;
   let statusFilter = document.getElementById('filterStatus').value;
+  let asalFilter = document.getElementById('filterAsal').value; // <-- Tambahan variabel filter asal
 
   let dataDisplay = jadwal.map((item, index) => {
     item.origIndex = index;
@@ -727,8 +734,9 @@ function render(){
     let matchNama = textFilter === '' || (e.client && e.client.toLowerCase().includes(textFilter));
     let matchBulan = bulanFilter === 'all' || bulanMulai === bulanFilter;
     let matchStatus = statusFilter === 'all' || stat === statusFilter;
+    let matchAsal = asalFilter === 'all' || e.asal === asalFilter; // <-- Tambahan logika pengecekan asal
 
-    return matchNama && matchBulan && matchStatus;
+    return matchNama && matchBulan && matchStatus && matchAsal; // <-- Masukkan ke return
   });
 
   let totalData = filteredData.length;
